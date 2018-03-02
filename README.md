@@ -2,7 +2,7 @@
 CS 301 Searching Lists
 
 # Deliverable 1
-Implement a binary search on a sorted list.
+~~Implement a binary search on a sorted list.~~ - DONE
 
 # Deliverable 2
 Implement a hash table.
