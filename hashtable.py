@@ -4,10 +4,12 @@ class ht:
 		self.length = l
 		# init to 0
 		self.ht = [0]*l*4
+		# constant time: initializes a couple variables
 
 	def hashfunction(self,i):
 		# modulo based hash
 		return(i % self.length)
+		# constant time: does one arithmetic operation
 
 	def put(self,i):
 		# where to put
@@ -32,6 +34,7 @@ class ht:
 					return(False)
 				# increment index
 				temp_index += 1
+		# best case constant, worst case linear
 
 	def contains(self,i):
 		# where to look
@@ -47,7 +50,9 @@ class ht:
 		# if it's there
 		elif self.ht[index] == i:
 			return(True)
+		#best case constant, worst case linear
 
 	def items(self):
 		# return all items that have values in them
 		return([f for f in self.ht if f != 0])
+		# linear time: python forloops are linear
