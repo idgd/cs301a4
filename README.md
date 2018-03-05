@@ -14,20 +14,22 @@ Implement a hash table.
 
 This will be implemented using a `HashList` class. Inputs will be integers.
 
-* `HashList(lengeth)` - Creates a new empty `HashList` of the given length
+* `HashList(length)` - Creates a new empty `HashList` of the given length
 * `hashfunction(item)` - Gives the slot an item should go into
 * `put(item)` - Adds item to list; if full, throw error
 * `contains(item)` - Returns true if thel given item exists, false otherwise
 * `items()` - Returns all items
 
+DONE
+
 # Deliverable 3
 
-Explain and justify running times in the `HashList` methods, using best and worst case scenarios.
+~~Explain and justify running times in the `HashList` methods, using best and worst case scenarios.~~ - DONE
 
 # Deliverable 4
 
-Explain how to modify the `HashList` class to match a dictionary.
+~~Explain how to modify the `HashList` class to match a dictionary.~~ - DONE
 
 # Deliverable 5
 
-Implement a `sort_list(ulist)` function that sorts the given list using any method.
+~~Implement a `sort_list(ulist)` function that sorts the given list using any method.~~ - DONE
