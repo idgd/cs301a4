@@ -56,3 +56,10 @@ class ht:
 		# return all items that have values in them
 		return([f for f in self.ht if f != 0])
 		# linear time: python forloops are linear
+
+# to modify into a python dictionary:
+"""
+Use a non-colliding hash function, like sha2 or sha3, to generate the indices
+Hash things as they come in, initialize with nothing
+Because of non-collision, all the running times will be constant, as they will always be in best-case
+"""
