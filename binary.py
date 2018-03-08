@@ -2,49 +2,35 @@ from generate import gen_list
 
 ### utility func
 
-# splits list in half
-def split(l,h):
-	if len(l) == 1:
-		return(l)
-
-	half = int(len(l)/2)
-
-	if h == 0:
-		return(l[:half])
-	else:
-		return(l[half:])
-
 # finds the middle item
 def half(l):
-	if len(l) == 1:
-		return(l[0])
 	return(l[int(len(l)/2)])
 
 ### binary search
 
-# list, item
 def bsearch(l,i):
-	# stores candidate var
+	print(l)
 	found = None
-	# while it's not the middle item
+	h = half(l)
+	s = 0
+	e = len(l) - 1
 	while found != i:
-		h = half(l)
-		print("half: " + str(h) + ", Searching for: " + str(i))
-		# if it's found
-		if i == h:
+		found = l[int(h)]
+		print("half: " + str(int(h)) + ", Searching for: " + str(i))
+		print(e - s, h)
+		if i == found:
 			return(True)
-		# if it's too short to split and not found
-		elif len(l) == 1:
+		elif e - s == 1:
 			return(False)
-		# if it's probably in the last half
-		elif i > h:
-			l = split(l,1)
-		# if it's probably in the first half
-		elif i < h:
-			l = split(l,0)
+		elif i < found:
+			e = h
+			h = (s + e)//2
+		elif i > found:
+			s = h
+			h = (s + e)//2
 
 # generate 1000 item list
-l = gen_list(1000)
+l = gen_list(10)
 # what to find
-i = 500
+i = 5
 print(bsearch(l,i))
