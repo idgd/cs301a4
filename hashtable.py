@@ -14,26 +14,25 @@ class ht:
 	def put(self,i):
 		# where to put
 		index = self.hashfunction(i)
+
 		# if it's clear, put it in and return
 		if self.ht[index] == 0:
 			self.ht[index] = i
 			return(True)
+
 		else:
-			# temp_index, because not indexing by default is the one thing I don't
-			# like about python forloops
-			temp_index = index
 			# for each remaining slot after index
-			for f in self.ht[index:]:
+			while index < len(self.ht):
 				# if there's a match
-				if f == 0:
-					self.ht[temp_index] = i
+				if self.ht[index] == 0:
+					self.ht[index] = i
 					return(True)
-				# if there isn't one in the whole list
-				elif len(self.ht[index:temp_index]) - len(self.ht[index:]) == -1:
-					print("no empty slots - item not added")
-					return(False)
 				# increment index
-				temp_index += 1
+				index += 1
+
+			# if it's not found
+			print("no empty slots - item not added")
+			return(False)
 		# best case constant, worst case linear
 
 	def contains(self,i):
@@ -41,12 +40,12 @@ class ht:
 		index = self.hashfunction(i)
 		# if it's not there, iterate through list until it is or isn't found
 		if self.ht[index] != i:
-			for f in self.ht[index:]:
-				if f == i:
+			while index < len(self.ht):
+				if self.ht[index] == i:
 					return(True)
-				elif f == self.ht[-1]:
-					print("item not found")
-					return(False)
+				index += 1
+			print("item not found")
+			return(False)
 		# if it's there
 		elif self.ht[index] == i:
 			return(True)
@@ -63,3 +62,34 @@ Use a non-colliding hash function, like sha2 or sha3, to generate the indices
 Hash things as they come in, initialize with nothing
 Because of non-collision, all the running times will be constant, as they will always be in best-case
 """
+
+hashtable = ht(5)
+hashtable.put(5)
+hashtable.put(4)
+hashtable.put(3)
+hashtable.put(2)
+hashtable.put(1)
+print(hashtable.items())
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+hashtable.put(5)
+print(hashtable.contains(5))
+hashtable.contains(7)
+print(hashtable.items())
