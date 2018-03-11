@@ -37,4 +37,5 @@ DONE
 # TODO
 
 * ~~Remove all instances of SLICING: slicing is linear time, ruins hashtable's constant runtimes, and makes binary search linear instead of log(n)~~ - DONE
-* Implement counting sort more correctly; python doesn't guarantee sorting from dict keys.
+* ~~Implement counting sort more correctly; python doesn't guarantee sorting from dict keys.~~ - DONE
+* Implement more sorts
