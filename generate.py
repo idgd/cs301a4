@@ -7,3 +7,9 @@ def gen_list(n):
 		r.append(randint(0,f))
 	r.sort()
 	return(r)
+
+def gen_list_unsorted(n):
+	r = []
+	for f in range(n):
+		r.append(randint(0,f))
+	return(r)
