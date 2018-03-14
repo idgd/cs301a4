@@ -1,10 +1,12 @@
+from time import time as t
+
 import binary
 import generate
 import hashtable
 import sort
 
 sorted_list = generate.gen_list(1024)
-unsorted_list = generate.gen_list_unsorted(1024)
+unsorted_list = generate.gen_list_unsorted(1048576)
 
 print("Hashtable test")
 hashtable = hashtable.ht(5)
@@ -28,3 +30,13 @@ print("")
 print(binary.bsearch(sorted_list,768))
 
 print("\nSorting test")
+
+s_counting = t()
+sort.sort_list_counting(unsorted_list)
+e_counting = t()
+print(e_counting - s_counting)
+
+s_tim = t()
+unsorted_list.sort()
+e_tim = t()
+print(e_tim - s_tim)
