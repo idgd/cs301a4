@@ -4,7 +4,7 @@ class ht:
 		self.length = l
 		# init to 0
 		self.ht = [0]*l*4
-		# constant time: initializes a couple variables
+		# linear time: initializes a couple variables, multiplies list by k * 4
 
 	def hashfunction(self,i):
 		# modulo based hash
