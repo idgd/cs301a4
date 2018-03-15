@@ -17,12 +17,14 @@ def sd(i,d):
 
 	e = int(log10(i))
 	r = int(i/10**e)
+	print("input: " + str(i) + ", depth: " + str(d) + ", exponent: " + str(e)  + ", return: " + str(r))
 	i -= r * 10**e
-	if e + 1 > d:
-		sd(i,d)
-	return(r)
-
-print(sd(256234,1))
+	if d < e:
+		return sd(i,d)
+	elif d > e:
+		return(0)
+	elif d == e:
+		return(r)
 
 # silly bogosort (shuffles then checks against an already sorted list)
 # this is just for fun :)
