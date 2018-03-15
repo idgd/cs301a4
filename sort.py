@@ -5,11 +5,11 @@ from math import log10
 
 def msd(i):
 	if i == 0:
-		return((0,0))
+		return(0)
 
 	e = int(log10(i))
 	r = int(i/10**e)
-	return((r,e))
+	return(r)
 
 def sd(i,d):
 	if i == 0:
@@ -17,7 +17,6 @@ def sd(i,d):
 
 	e = int(log10(i))
 	r = int(i/10**e)
-	print("input: " + str(i) + ", depth: " + str(d) + ", exponent: " + str(e)  + ", return: " + str(r))
 	i -= r * 10**e
 	if d < e:
 		return sd(i,d)
@@ -25,6 +24,13 @@ def sd(i,d):
 		return(0)
 	elif d == e:
 		return(r)
+
+def length(i):
+	if i == 0:
+		return(1)
+
+	e = int(log10(i)) + 1
+	return(e)
 
 # silly bogosort (shuffles then checks against an already sorted list)
 # this is just for fun :)
@@ -56,14 +62,31 @@ def sort_list_counting(ulist):
 
 # radix sort
 def sort_list_radix(ulist):
-	l = max([msd(f)[1] for f in ulist])
-	while l >= 0:
-		b = [list() for f in range(10)]
-		for f in ulist:
-			m = msd(f)
-			b[m[0]].append(f)
-		b = [item for sublist in b for item in sublist]
-		l -= 1
+	l = [[] for f in range(10)]
+	r = ulist[:]
 
-m = gen_list(10)
+	m = 0
+	for f in ulist:
+		if length(f) > m:
+			m = length(f)
+
+	print(m)
+	for f in range(0,m):
+		while r:
+			t = r.pop()
+			l[sd(t,f)].append(t)
+		for g in l:
+			while g:
+				r.append(g.pop())
+
+	return(r)
+
+m = gen_list(1638412)
+s = t()
 sort_list_radix(m)
+e = t()
+print(e-s)
+s = t()
+m.sort()
+e = t()
+print(e-s)
