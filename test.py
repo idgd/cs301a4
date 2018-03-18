@@ -38,6 +38,13 @@ sort.sort_list_counting(unsorted_list)
 e_counting = t()
 print(e_counting - s_counting)
 
+s_radix = t()
+sort.sort_list_radix(unsorted_list)
+e_radix = t()
+print(e_radix - s_radix)
+
+unsorted_list = generate.gen_list_unsorted(1048576)
+
 s_tim = t()
 unsorted_list.sort()
 e_tim = t()
