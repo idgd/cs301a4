@@ -5,9 +5,6 @@ import generate
 import hashtable
 import sort
 
-sorted_list = [f for f in range(257)]
-unsorted_list = generate.gen_list_unsorted(1048576)
-
 print("Hashtable test")
 hashtable = hashtable.ht(5)
 hashtable.put(5)
@@ -23,17 +20,18 @@ print(hashtable.contains(50))
 print(hashtable.items())
 
 print("\nBinary Search test")
+
+sorted_list = [f for f in range(257)]
+
 print(binary.bsearch(sorted_list,0))
-print("")
 print(binary.bsearch(sorted_list,64))
-print("")
 print(binary.bsearch(sorted_list,128))
-print("")
 print(binary.bsearch(sorted_list,256))
-print("")
 print(binary.bsearch(sorted_list,512))
 
 print("\nSorting test")
+
+unsorted_list = generate.gen_list_unsorted(1048576)
 
 s_counting = t()
 sort.sort_list_counting(unsorted_list)
