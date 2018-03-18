@@ -1,7 +1,7 @@
 from random import shuffle
-from generate import gen_list_unsorted as gen_list
-from time import time as t
 from math import log10
+from generate import gen_list_unsorted as gl
+from time import time as t
 
 def msd(i):
 	if i == 0:
@@ -60,23 +60,23 @@ def sort_list_counting(ulist):
 		i += 1
 	return(r)
 
-# radix sort
-def sort_list_radix(ulist):
-	l = [[] for f in range(10)]
-	r = ulist[:]
+def sort_list_radix(l):
+	b = [[] for f in range(10)]
+	d = 1
+	m = True
 
-	m = 0
-	for f in ulist:
-		if length(f) > m:
-			m = length(f)
+	while m:
+		m = False
 
-	print(m)
-	for f in range(0,m):
-		while r:
-			t = r.pop()
-			l[sd(t,f)].append(t)
-		for g in l:
+		while l:
+			t = l.pop()
+			i = t // d
+			b[i % 10].append(t)
+			if i > 0:
+				m = True
+
+		for g in b:
 			while g:
-				r.append(g.pop())
+				l.append(g.pop())
 
-	return(r)
+		d *= 10
