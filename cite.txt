@@ -1,0 +1,2 @@
+QUICKSORT: https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
+RADIX: https://en.wikipedia.org/wiki/Radix_sort
