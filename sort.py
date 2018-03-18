@@ -1,5 +1,7 @@
 from random import shuffle
 
+# radix and counting only work on positive integers
+
 # silly bogosort (shuffles then checks against an already sorted list)
 # this is just for fun :)
 def sort_list_bogo(ulist):
@@ -15,11 +17,10 @@ def sort_list_bogo(ulist):
 # much, much more memory than timsort
 # O(n)
 def sort_list_counting(ulist):
-	# find greatest and least values in the input list
+	# find greatest value in the input list
 	greatest = max(ulist)
-	least = min(ulist)
 	# create an ordered counting list
-	count = [0 for f in range(least,greatest + 1)]
+	count = [0 for f in range(0,greatest + 10)]
 	# count each instance of a number in the input list
 	for f in ulist:
 		count[f] += 1
@@ -29,7 +30,7 @@ def sort_list_counting(ulist):
 	# iterate over count
 	while iterator < len(count):
 		# create new list of counted variable
-		new_piece = [i] * count[i]
+		new_piece = [iterator] * count[iterator]
 		# extend the emptied list with this new list
 		ulist.extend(new_piece)
 		iterator += 1
@@ -55,7 +56,7 @@ def sort_list_radix(ulist):
 			temp = ulist.pop()
 			index = temp // digit
 			# dump into bucket by last digit (% 10)
-			b[index % 10].append(temp)
+			buckets[index % 10].append(temp)
 			# if it's double digit, it's not done sorting
 			if index > 0:
 				loop = True
