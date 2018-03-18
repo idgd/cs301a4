@@ -1,6 +1,36 @@
 from random import shuffle
 
-# radix and counting only work on positive integers
+# quicksort
+# in place, Hoare partitioning scheme
+# O(n log(n))
+def sort_list_quick(l):
+	def _qs(l,s,e):
+		# if the bounds are valid
+		if s < e:
+			# partition
+			p = partition(l,s,e)
+			# repeat on left/right
+			_qs(l,s,p)
+			_qs(l,p + 1,e)
+
+	def partition(l,s,e):
+		# hoare: move start and end closer until their values meet
+		p = l[s]
+		while True:
+			while l[s] < p:
+				s += 1
+			while l[e] > p:
+				e -= 1
+			# once they meet
+			if s >= e:
+				return(e)
+			# invert the values
+			l[s],l[e] = l[e],l[s]
+			s += 1
+			e -= 1
+	# begin
+	_qs(l,0,len(l) - 1)
+	return(l)
 
 # silly bogosort (shuffles then checks against an already sorted list)
 # this is just for fun :)
@@ -11,6 +41,8 @@ def sort_list_bogo(ulist):
 	while ulist != sorted_list:
 		shuffle(ulist)
 	return(ulist)
+
+# radix and counting only work on positive integers
 
 # counting sort
 # faster than python's built-in sort (timsort) at very large lists

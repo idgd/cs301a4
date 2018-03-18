@@ -47,6 +47,13 @@ print("Radix sort time: " + str(e_radix - s_radix))
 
 unsorted_list = generate.gen_list_unsorted(1048576)
 
+s_quick = t()
+sort.sort_list_quick(unsorted_list)
+e_quick = t()
+print("Quicksort sort time: " + str(e_quick - s_quick))
+
+unsorted_list = generate.gen_list_unsorted(1048576)
+
 s_tim = t()
 unsorted_list.sort()
 e_tim = t()
