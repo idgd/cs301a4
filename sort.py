@@ -1,36 +1,4 @@
 from random import shuffle
-from math import log10
-from generate import gen_list_unsorted as gl
-from time import time as t
-
-def msd(i):
-	if i == 0:
-		return(0)
-
-	e = int(log10(i))
-	r = int(i/10**e)
-	return(r)
-
-def sd(i,d):
-	if i == 0:
-		return(0)
-
-	e = int(log10(i))
-	r = int(i/10**e)
-	i -= r * 10**e
-	if d < e:
-		return sd(i,d)
-	elif d > e:
-		return(0)
-	elif d == e:
-		return(r)
-
-def length(i):
-	if i == 0:
-		return(1)
-
-	e = int(log10(i)) + 1
-	return(e)
 
 # silly bogosort (shuffles then checks against an already sorted list)
 # this is just for fun :)
