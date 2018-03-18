@@ -7,6 +7,10 @@ def half(l):
 ### binary search
 
 def bsearch(l,i):
+	# testing found edgecase: won't find first/last items
+	if l[0] == i or l[-1] == i:
+		return(True)
+
 	# what's found
 	found = None
 	# halfway point, start, end

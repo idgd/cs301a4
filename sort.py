@@ -80,13 +80,3 @@ def sort_list_radix(ulist):
 				r.append(g.pop())
 
 	return(r)
-
-m = gen_list(1638412)
-s = t()
-sort_list_radix(m)
-e = t()
-print(e-s)
-s = t()
-m.sort()
-e = t()
-print(e-s)
