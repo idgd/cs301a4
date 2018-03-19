@@ -1,2 +1,2 @@
 QUICKSORT: https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
-RADIX: https://en.wikipedia.org/wiki/Radix_sort
+RADIX: https://en.wikipedia.org/wiki/Radix_sort, https://stackoverflow.com/questions/23049650/python-loop-of-radix-sort#23050049
