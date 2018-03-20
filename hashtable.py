@@ -39,14 +39,13 @@ class ht:
 		index = self.hashfunction(i)
 		# if it's not there, iterate through list until it is or isn't found
 		if self.ht[index] != i:
-			while index < len(self.ht):
-				if self.ht[index] == i:
+			for f in self.ht:
+				if f == i:
 					return(True)
-				index += 1
 			print("item not found")
 			return(False)
 		# if it's there
-		elif self.ht[index] == i:
+		else:
 			return(True)
 		#best case constant, worst case linear
 
