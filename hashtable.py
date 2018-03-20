@@ -2,8 +2,8 @@ class ht:
 	def __init__(self,l):
 		# utility variable
 		self.length = l
-		# init to 0
-		self.ht = [0]*l*4
+		# init to None
+		self.ht = [None]*l*4
 		# linear time: initializes a couple variables, multiplies list by k * 4
 
 	def hashfunction(self,i):
@@ -16,19 +16,18 @@ class ht:
 		index = self.hashfunction(i)
 
 		# if it's clear, put it in and return
-		if self.ht[index] == 0:
+		if self.ht[index] == None:
 			self.ht[index] = i
 			return(True)
 
 		else:
-			# for each remaining slot after index
-			while index < len(self.ht):
-				# if there's a match
-				if self.ht[index] == 0:
-					self.ht[index] = i
+			# for each remaining slot
+			for f in self.ht:
+				if f == None:
+					self.ht.insert(self.ht.index(None),i)
+					self.ht.remove(None)
 					return(True)
 				# increment index
-				index += 1
 
 			# if it's not found
 			print("no empty slots - item not added")
@@ -53,7 +52,7 @@ class ht:
 
 	def items(self):
 		# return all items that have values in them
-		return([f for f in self.ht if f != 0])
+		return([f for f in self.ht if f != None])
 		# linear time: python forloops are linear
 
 # to modify into a python dictionary:

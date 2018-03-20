@@ -31,6 +31,22 @@ print(binary.bsearch(sorted_list,512))
 
 print("\nSorting test")
 
+print("Correctness")
+unsorted_list = [123,32,46,98,88,334,523,32,32,16]
+print("Unsorted list: ", unsorted_list, "\nCounting Sort")
+sort.sort_list_counting(unsorted_list)
+
+print(unsorted_list, "\nRadix Sort")
+unsorted_list = [123,32,46,98,88,334,523,32,32,16]
+sort.sort_list_radix(unsorted_list)
+
+print(unsorted_list, "\nQuick Sort")
+unsorted_list = [123,32,46,98,88,334,523,32,32,16]
+sort.sort_list_quick(unsorted_list)
+print(unsorted_list)
+
+print("\nTimes")
+
 unsorted_list = generate.gen_list_unsorted(1048576)
 
 s_counting = t()
