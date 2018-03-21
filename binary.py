@@ -1,13 +1,16 @@
 def bsearch(l,i):
+	steps = 0
 	# what's found
 	found = None
 	# halfway point, start, end
-	h = l[int(len(l)/2)]
+	h = int(len(l)/2)
 	s = 0
 	e = len(l) - 1
 	while found != i:
+		print(steps)
+		steps += 1
 		# found is the middle item
-		found = l[int(h)]
+		found = l[int(round(h))]
 		# if it's found
 		if i == found:
 			return(True)
